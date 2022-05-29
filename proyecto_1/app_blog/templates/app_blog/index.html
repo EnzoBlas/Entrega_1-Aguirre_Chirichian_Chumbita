@@ -41,23 +41,9 @@
             </div>
         </section>
         <section class="portfolio-block call-to-action border-bottom" style="background: rgba(32,36,41,0.89);">
-            <div class="container">
-                <h1 style="color: var(--bs-gray-100);">Publicaciones recientes</h1>
-            </div>
             <div class="container" style="background: #505458;">
-                <p style="text-align: left;margin: 3px;font-size: 34px;font-weight: bold;color: rgb(187,187,187);">Titulo</p>
-                <p style="margin: 23px;color: rgb(187,187,187);font-size: 19px;">post</p>
-                <p style="font-size: 16px;font-weight: bold;color: rgb(187,187,187);">Autor</p>
-            </div>
-            <div class="container" style="background: #505458;">
-                <p style="text-align: left;margin: 3px;font-size: 34px;font-weight: bold;color: rgb(187,187,187);">Titulo</p>
-                <p style="margin: 23px;color: rgb(187,187,187);font-size: 19px;">post</p>
-                <p style="font-size: 16px;font-weight: bold;color: rgb(187,187,187);">Autor</p>
-            </div>
-            <div class="container" style="background: #505458;">
-                <p style="text-align: left;margin: 3px;font-size: 34px;font-weight: bold;color: rgb(187,187,187);">Titulo</p>
-                <p style="margin: 23px;color: rgb(187,187,187);font-size: 19px;">post</p>
-                <p style="font-size: 16px;font-weight: bold;color: rgb(187,187,187);">Autor</p>
+                {% block app_blog_content %}
+                {% endblock %}
             </div>
         </section>
         <section class="portfolio-block call-to-action border-bottom" style="background: rgba(32,36,41,0.89);">
