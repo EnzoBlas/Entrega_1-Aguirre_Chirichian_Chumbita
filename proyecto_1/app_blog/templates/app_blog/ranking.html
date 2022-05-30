@@ -1,0 +1,18 @@
+{% extends "app_blog/index.html" %}
+{% load static %}
+{% block app_blog_content %} 
+
+
+    <h1 style="color: var(--bs-gray-100);">¡Valora tus cursos!</h1>
+    <h2 style="color: var(--bs-gray-100);">Da una valoración y una opinión de los cursos que has tenido</h2>
+    <a class="card_custom" href="{% url 'app_blog:RankingForm' %}">Crear Publicación</a>
+    <hr></hr>
+    {% for element in rankings %}
+        <div class="container" style="background: #505458;">
+        <p style="text-align: left;margin: 3px;font-size: 34px;font-weight: bold;color: rgb(187,187,187);">{{element.course}}</p>
+        <p style="font-size: 16px;font-weight: bold;color: rgb(187,187,187);">{{element.score}}</p>
+        <p style="margin: 23px;color: rgb(187,187,187);font-size: 19px;">{{element.opinion}}</p>
+        </div>
+    {% endfor %}
+
+{% endblock %}

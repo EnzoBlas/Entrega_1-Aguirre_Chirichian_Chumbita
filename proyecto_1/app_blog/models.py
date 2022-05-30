@@ -14,3 +14,12 @@ class Comentario(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class Ranking(models.Model):
+    name_course = models.CharField(max_length=30)
+    score = models.CharField(max_length=1)
+    opinion = models.TextField()
+
+    def __str__(self):
+        return self.name_course
