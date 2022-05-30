@@ -1,3 +1,4 @@
+from unittest.util import _MAX_LENGTH
 from django.db import models
 import datetime
 from datetime import datetime
@@ -16,7 +17,7 @@ class Userpost(models.Model):
 
 class Post(models.Model):
     title = models.CharField(max_length=40)
-    author = Userpost.name
+    author = models.CharField(max_length=30)
     text = models.TextField()
     due_date = models.DateField()
 

@@ -13,6 +13,6 @@ class User_form(forms.Form):
 
 class Post_form(forms.Form):
     title = forms.CharField(max_length=40)
-    author = Userpost.name
-    text = forms.TextInput()
+    author = forms.IntegerField() 
+    text = forms.CharField()
     due_date = forms.DateField()
