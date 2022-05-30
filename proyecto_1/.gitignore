@@ -4,3 +4,5 @@ venv/*
 *.pyc
 */__pycache__/
 x_*
+*/app_blog/migrations/
+*db.sqlite3

@@ -1,0 +1,16 @@
+{% extends "app_blog/index.html" %}
+{% load static %}
+{% block app_blog_content %}
+
+
+    <h1 style="color: var(--bs-gray-100);">Publicaciones recientes</h1>
+{% if comments %}
+    {% for comment in comments %}
+        <div class="container" style="background: #505458;">
+        <p style="text-align: left;margin: 3px;font-size: 34px;font-weight: bold;color: rgb(187,187,187);">{{comment.title}}</p>
+        <p style="margin: 23px;color: rgb(187,187,187);font-size: 19px;">{{comment.content}}</p>
+        <p style="font-size: 16px;font-weight: bold;color: rgb(187,187,187);">{{comment.author}}</p>
+        </div>
+        {% endfor %}
+{% endif %}
+{% endblock %}
