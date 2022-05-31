@@ -145,3 +145,25 @@ def post_form(request):
         context=context_dict,
         template_name='app_blog/post_form.html'
     )
+
+def search(request):   
+	if request.GET('all-search'):
+		search_param = request.GET('all-search')
+		posts = Post.objects.filter(title__contains=search_param)
+		#query = Q(title__contains=search_param)
+		#query.add(Q(author__contains=search_param), Q.OR)
+		#posts = Post.objects.filter(title__contains=search_param)
+
+		context_dict = {
+			'posts': posts
+	    }
+
+	return render(
+		request=request,
+		context=context_dict,
+		template_name='app_blog/search.html',
+	)
+
+def buscarDatos(request):
+	
+	return render(request, "app_blog/search.html")

@@ -1,0 +1,29 @@
+{% extends "app_blog/index.html" %}
+{% load static %}
+{% block app_blog_content %} 
+
+
+<h2>Buscador de publicaciones </h2>
+<hr></hr>
+
+<form action="{% url 'app_blog:Search-Data' %}" method='GET'>
+	<div>
+		<input type='text' name='all-search' id='post_datos' placeholder='Búsqueda'>
+		<input type='submit' value='Buscar' style="background-color:black; border-color: black; color: blanchedalmond;">
+	</div>
+	<hr></hr>
+</form>
+
+{% if posts %}
+	{% for post in posts %}
+		<div class="container" style="background: #505458;">
+			<p style="text-align: left;margin: 3px;font-size: 34px;font-weight: bold;color: rgb(187,187,187);">Titulo: {{post.title}}</p>
+			<br>
+			<p style="font-size: 16px;font-weight: bold;color: rgb(187,187,187);">Autor: {{post.author}}</p>
+			<hr style="color: rgb(216, 216, 216);"></hr>
+		</div>
+	{% endfor %}
+{% endif %}
+
+{% endblock %}
+
