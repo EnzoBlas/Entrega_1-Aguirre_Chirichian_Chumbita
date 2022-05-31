@@ -1,0 +1,16 @@
+{% extends "app_blog/index.html" %}
+{% load static %}
+{% block app_blog_content %} 
+<h2>crea un nuevo usuario</h2>
+<hr></hr>
+
+<form action="" method="POST">
+    {% csrf_token %}
+
+    {{ user_form.as_p }}
+
+    <input type="submit" class="btn btn-primary" value="Crear usuario" />
+
+</form>
+
+{% endblock %}

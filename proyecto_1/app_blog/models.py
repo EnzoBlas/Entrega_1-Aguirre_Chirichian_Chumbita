@@ -1,17 +1,17 @@
+from unittest.util import _MAX_LENGTH
 from django.db import models
 import datetime
 from datetime import datetime
-#from django.core.validators import MaxValueValidator, MinValueValidator
+
 
 
 # Create your models here.
 
-class Comentario(models.Model):
-    title = models.CharField(max_length=30)
-    author = models.CharField(max_length=200)
-    content = models.TextField()
-    slug = models.SlugField()
-    due_date = models.DateField(auto_now_add=True)
+
+class Userpost(models.Model):
+    name = models.CharField(max_length=30)
+    last_name = models.CharField(max_length=30)
+    email = models.EmailField()
 
     def __str__(self):
         return self.title
@@ -22,6 +22,15 @@ class Ranking(models.Model):
     opinion = models.TextField()
     score = models.IntegerField()
     
-
     def __str__(self):
         return self.name_course
+
+
+class Post(models.Model):
+    title = models.CharField(max_length=40)
+    author = models.CharField(max_length=30)
+    text = models.TextField()
+    due_date = models.DateField(auto_now=True)
+
+    def __str__(self):
+        return  self.title

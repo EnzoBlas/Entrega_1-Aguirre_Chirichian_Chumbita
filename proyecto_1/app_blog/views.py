@@ -1,21 +1,32 @@
-from xml.etree.ElementTree import Comment
-from django.shortcuts import get_object_or_404, render
+from datetime import date, datetime
+from django.shortcuts import render
 from django.db.models import Q
 from django.forms.models import model_to_dict
-from datetime import datetime, timezone
-from django.shortcuts import redirect
+from datetime import datetime
 
-from app_blog.models import Comentario, Ranking
-from app_blog.form import ComentarioForm, RankingForm
+
+from app_blog.models import Post, Userpost, Ranking
+from app_blog.form import User_form, Post_form, RankingForm
 
 def index(request):
-    return render(request, 'app_blog/home.html')
-
-def comments(request):
-    comments = Comentario.objets.all()
+    posts = Post.objects.all()
 
     context_dict = {
-        'comments': comments
+        'posts': posts
+    }
+
+    return render(
+        request=request,
+        context=context_dict,
+        template_name="app_blog/home.html",
+    )
+
+    
+def posts(request):
+    posts = Post.objects.all()
+
+    context_dict = {
+        'posts': posts
     }
 
     return render(
@@ -25,17 +36,21 @@ def comments(request):
     )
 
 
-def comentario_form(request):
+def user_forms(request):
     if request.method == 'POST':
-        coment_form = ComentarioForm(request.POST)
-        if coment_form.is_valid():
-            data = coment_form.cleaned_data
-            coment = Comentario(title=data['title'], author=data['author'], content=data['content'])
-            coment.save()
+        user_from = User_form(request.POST)
+        if user_from.is_valid():
+            data = user_from.cleaned_data
+            userpost = Userpost(
+                name=data['name'],
+                last_name=data['last_name'],
+                email=data['email'],
+            )
+            userpost.save()
 
-            comentario = Comentario.objects.all()
+            userposts = Userpost.objects.all()
             context_dict = {
-                'comentario': comentario
+                'userposts': userposts
             }
             return render(
                 request=request,
@@ -43,10 +58,10 @@ def comentario_form(request):
                 template_name="app_blog/home.html"
             )
 
-    coment_form = ComentarioForm(request.POST)
+    user_from = User_form(request.POST)
     context_dict = {
-        'coment_form': coment_form
-    }
+        'user_form': user_from
+     }
     return render(
         request=request,
         context=context_dict,
@@ -97,4 +112,36 @@ def ranking_form(request):
         context=context_dict,
         template_name='app_blog/ranking_form.html'
     )
+    
 
+def post_form(request):
+    if request.method == 'POST':
+        post_form = Post_form(request.POST)
+        if post_form.is_valid():
+            data = post_form.cleaned_data
+            post = Post(
+                title=data['title'],
+                author=data['author'],
+                text=data['text'],
+            )
+            post.save()
+
+            posts = Post.objects.all()
+            context_dict = {
+                'posts': posts
+            }
+            return render(
+                request=request,
+                context=context_dict,
+                template_name="app_blog/home.html"
+            )
+
+    post_form = Post_form(request.POST)
+    context_dict = {
+        'post_form': post_form
+     }
+    return render(
+        request=request,
+        context=context_dict,
+        template_name='app_blog/post_form.html'
+    )
