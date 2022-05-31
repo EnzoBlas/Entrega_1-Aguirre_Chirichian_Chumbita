@@ -15,4 +15,3 @@ class Post_form(forms.Form):
     title = forms.CharField(max_length=40)
     author = forms.IntegerField() 
     text = forms.CharField()
-    due_date = forms.DateField()

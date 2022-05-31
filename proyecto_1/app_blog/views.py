@@ -1,4 +1,4 @@
-from datetime import datetime
+from datetime import date, datetime
 from turtle import title
 from django.shortcuts import render
 from django.db.models import Q
@@ -76,7 +76,6 @@ def post_form(request):
                 title=data['title'],
                 author=data['author'],
                 text=data['text'],
-                due_date=data["due_date"],
             )
             post.save()
 
