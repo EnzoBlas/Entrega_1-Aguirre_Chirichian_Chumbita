@@ -28,9 +28,8 @@
                         <li class="nav-item"><a class="nav-link active" href="/app_blog/">Inicio</a></li>
                         <li class="nav-item"></li>
                         <li class="nav-item"><a class="nav-link" href="/app_blog/user-form">Crear usuario&nbsp;</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">Publicaciones anteriores&nbsp;</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{% url 'app_blog:Ranking' %}">Ranking&nbsp;</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">Buscar Publicación</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/app_blog/ranking">Ranking&nbsp;</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/app_blog/search">Buscar Publicación</a></li>
                     </ul><a class="btn btn-primary ms-md-2" role="button" href="/app_blog/post-form" style="background: #49535c;border-color: rgb(13,14,16);">Crear publicación</a>
                 </div>
             </div>
@@ -63,14 +62,14 @@
                         <ul class="list-unstyled">
                             <li><a class="link-light" href="/app_blog/">Inicio</a></li>
                             <li><a class="link-light" href="/app_blog/user-form">Crear Usuario</a></li>
-                            <li><a class="link-light" href="#">Buscar publicación</a></li>
+                            <li><a class="link-light" href="/app_blog/search">Buscar publicación</a></li>
                         </ul>
                     </div>
                     <div class="col-sm-4 col-md-3 text-center text-lg-start d-flex flex-column item">
                         <h3 class="fs-6 text-white">Contactenos</h3>
                         <ul class="list-unstyled">
-                            <li><a class="link-light" href="{% url 'app_blog:Ranking' %}">Rankin</a></li>
-                            <li><a class="link-light" href="#">Cambios y sugerencias</a></li>
+                            <li><a class="link-light" href="app_blog/ranking">Ranking</a></li>
+                            <li><a class="link-light" href="https://plataforma.coderhouse.com/chat">Cambios y sugerencias</a></li>
                         </ul>
                     </div>
                     <div class="col-sm-4 col-md-3 text-center text-lg-start d-flex flex-column item">

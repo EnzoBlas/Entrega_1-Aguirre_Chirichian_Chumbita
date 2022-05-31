@@ -2,14 +2,15 @@
 {% load static %}
 {% block app_blog_content %} 
 
-    <h2>Crea una nueva publicacion</h2>
-    <form action="" method="POST" class="post-form"> {% csrf_token %}
+<h2>Crea una nueva valoracion</h2>
 
-        <table>
-            {{ ranking_form }}
-        </table>
-        <br>
-        <input type="submit" class="btn btn-primary" value="Crear Ranking" style="background-color:black; border-color: black;" />
+<form action="" method="POST">
+    {% csrf_token %}
 
-    </form>
+    {{ ranking_form.as_p }}
+
+    <input type="submit" class="btn btn-primary" style="background: #49535c;border-color: rgb(13,14,16)" value="Crear valoración" />
+
+</form>
+
 {% endblock %}

@@ -3,19 +3,14 @@
 {% block app_blog_content %} 
 
 
-    <h1 style="color: var(--bs-gray-100);"><strong>¡Valora tus cursos!</strong></h1>
-    <h2 style="color: var(--bs-gray-100);">Da una valoración y una opinión de los cursos que has tenido</h2>
-    <br>
-    <a href="{% url 'app_blog:RankingForm' %}"><span class="glyphicon glyphicon-plus"></span>Crear valoracion</a>
+    <h2 style="color: var(--bs-gray-100);"><strong>¡Valora tus cursos!</strong></h2>
     <hr></hr>
-    {% for element in rankings %}
-        <div class="container" style="background: #505458;">
-        <p style="text-align: left;margin: 3px;font-size: 34px;font-weight: bold;color: rgb(187,187,187);">Curso: {{element.name_course}}</p>
-        <p style="font-size: 16px;font-weight: bold;color: rgb(187,187,187);">-- Puntuacion: {{element.score}} </p>
-        <p style="margin: 23px;color: rgb(187,187,187);font-size: 19px;">-- Opinion: {{element.opinion}}</p>
-        <hr style="color: rgb(216, 216, 216);"/>
-        </div>
-        
-    {% endfor %}
-
+    <h3 style="color: var(--bs-gray-100);">Da una valoración y una opinión de los cursos que has tenido</h3>
+    <a class="btn btn-primary" role="button" href="/app_blog/ranking-form/" style="background: #49535c;border-color: rgb(13,14,16)"> Crear valoración </a>
+    <br>
+    <br>
+    <h2 style="color: var(--bs-gray-100);">Consulta las opiniones de los alumnos</h3>
+    <a class="btn btn-primary" role="button" href="/app_blog/ranking-list/" style="background: #49535c;border-color: rgb(13,14,16)"> Ver valoraciones </a>
+    <br>
+    <br>
 {% endblock %}

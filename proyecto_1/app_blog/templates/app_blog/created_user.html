@@ -1,0 +1,13 @@
+{% extends "app_blog/index.html" %}
+{% load static %}
+{% block app_blog_content %} 
+
+<h2> Usuario creado con exito</h2>
+<hr></hr>
+{% if userpost %}
+
+<h3> Para realizar publicaciones ingrese su ID: {{userpost.pk}}</h3>
+<hr></hr>
+
+{% endif %}
+{% endblock %}

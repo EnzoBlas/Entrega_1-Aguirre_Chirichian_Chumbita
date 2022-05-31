@@ -1,0 +1,31 @@
+{% extends "app_blog/index.html" %}
+{% load static %}
+{% block app_blog_content %} 
+
+
+<hr></hr>
+
+<h2 style="color: var(--bs-gray-100);"><strong>Buscador de publicaciones</strong></h2>
+    <hr></hr>
+    <h3 style="color: var(--bs-gray-100);">Ingresa las palabra clave que quieres buscar en publicaciones anteriores</h3>
+
+<form action="/app_blog/search_post" method="GET">
+    <div>
+        <input type="text" name="all_search" id="post_name_or_body" >
+        <input type="submit" class="btn btn-primary" style="background: #49535c;border-color: rgb(13,14,16)" value="Buscar" />
+    </div>
+
+</form>
+
+<hr></hr>
+
+{% if posts %}
+    {% for post in posts %}
+        <div class="container" style="background: #505458;">
+        <p style="text-align: left;margin: 3px;font-size: 34px;font-weight: bold;color: rgb(187,187,187);">{{post.title}}</p>
+        <p style="margin: 23px;color: rgb(187,187,187);font-size: 19px;">{{post.text}}</p>
+        <p style="font-size: 16px;font-weight: bold;color: rgb(187,187,187);">{{post.author}} -- {{post.due_date}}</p>
+        </div>
+        {% endfor %}
+{% endif %}
+{% endblock %}

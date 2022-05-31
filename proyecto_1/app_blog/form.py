@@ -1,5 +1,3 @@
-import datetime
-from datetime import date, datetime
 from django import forms
 from django.forms import ModelForm
 from app_blog.models import Ranking
@@ -11,12 +9,13 @@ class User_form(forms.Form):
     last_name = forms.CharField(max_length=30)
     email = forms.EmailField()
 
-class RankingForm(forms.ModelForm):
-    class Meta:
-        model = Ranking
-        fields = ('name_course', 'opinion', 'score')
+class Ranking_form(forms.Form):
+    name_course = forms.CharField(max_length=40) 
+    opinion = forms.CharField()
+    score = forms.IntegerField(min_value=1, max_value=10)
+    id_number = forms.IntegerField()
 
 class Post_form(forms.Form):
-    title = forms.CharField(max_length=40)
-    author = forms.IntegerField() 
+    title = forms.CharField(max_length=40) 
     text = forms.CharField()
+    id_number = forms.IntegerField()

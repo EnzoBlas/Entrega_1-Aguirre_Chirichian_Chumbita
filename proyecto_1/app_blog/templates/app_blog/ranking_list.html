@@ -1,0 +1,18 @@
+{% extends "app_blog/index.html" %}
+{% load static %}
+{% block app_blog_content %} 
+
+<h2>Cursos valorados:</h2>
+<hr></hr>
+
+{% for ranking in rankings %}
+        <div class="container" style="background: #505458;">
+        <p style="text-align: left;margin: 3px;font-size: 34px;font-weight: bold;color: rgb(187,187,187);">Curso: {{ranking.name_course}}</p>
+        <p style="font-size: 16px;font-weight: bold;color: rgb(187,187,187);">-- Puntuacion: {{ranking.score}} </p>
+        <p style="margin: 23px;color: rgb(187,187,187);font-size: 19px;">-- Opinion: {{ranking.opinion}}</p>
+        <p style="font-size: 16px;font-weight: bold;color: rgb(187,187,187);">{{ranking.author}} -- {{ranking.due_date}}</p>
+        <hr style="color: rgb(216, 216, 216);"/>
+        </div>
+        
+    {% endfor %}
+{% endblock %}
