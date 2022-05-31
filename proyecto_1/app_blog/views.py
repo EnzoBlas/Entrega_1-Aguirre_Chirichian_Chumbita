@@ -80,7 +80,7 @@ def post_form(request):
             data = post_form.cleaned_data
             post = Post(
                 title=data['title'],
-                author=Userpost['author'],
+                author=data['author'],
                 text=data['text'],
             )
             post.save()
