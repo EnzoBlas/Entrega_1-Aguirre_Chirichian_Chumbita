@@ -2,9 +2,8 @@
 {% load static %}
 {% block app_blog_content %} 
 
-
-    <form action="" method="POST">
-        {% csrf_token %}
+    <h2>Crea una nueva publicacion</h2>
+    <form action="" method="POST" class="post-form"> {% csrf_token %}
 
         <table>
             {{ ranking_form }}

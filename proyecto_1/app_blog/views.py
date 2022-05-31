@@ -1,7 +1,9 @@
 from xml.etree.ElementTree import Comment
-from django.shortcuts import render
+from django.shortcuts import get_object_or_404, render
 from django.db.models import Q
 from django.forms.models import model_to_dict
+from datetime import datetime, timezone
+from django.shortcuts import redirect
 
 from app_blog.models import Comentario, Ranking
 from app_blog.form import ComentarioForm, RankingForm
@@ -53,10 +55,10 @@ def comentario_form(request):
 
 
 def ranking(request):
-    ranking = Ranking.objects.all()
+    rankings = Ranking.objects.all()
 
     context_dict = {
-        'ranking': ranking
+        'rankings': rankings
     }
 
     return render(
@@ -67,18 +69,20 @@ def ranking(request):
 
 
 def ranking_form(request):
-    if request.method == 'POST':
+    if request.method == "POST":
         ranking_form = RankingForm(request.POST)
         if ranking_form.is_valid():
-            data = ranking_form.cleaned_data
-            ranking = Ranking(name_course=data['course'], score=data['score'], opinion=data['opinion'])
+            ranking = ranking_form.save(commit=False)
+            #omitir esto
+            #ranking.author = request.user
+            #ranking.published_date = datetime.now()
             ranking.save()
 
-            rankings = Ranking.objects.all()
-            context_dict = {
-                'ranking': ranking
-            }
-            return render(
+        rankings = Ranking.objects.all()
+        context_dict = {
+            'rankings': rankings
+        }
+        return render(
                 request=request,
                 context=context_dict,
                 template_name="app_blog/ranking.html"
@@ -93,3 +97,4 @@ def ranking_form(request):
         context=context_dict,
         template_name='app_blog/ranking_form.html'
     )
+

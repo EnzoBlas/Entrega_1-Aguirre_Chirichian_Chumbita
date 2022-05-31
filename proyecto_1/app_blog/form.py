@@ -11,6 +11,8 @@ class RankingForm(forms.ModelForm):
     class Meta:
         model = Ranking
         fields = ('name_course', 'opinion', 'score')
+
+        
     
 
 

@@ -9,5 +9,6 @@ urlpatterns = [
     path("comentform/", views.comentario_form, name="comentform"),
     path('ranking/', views.ranking, name='Ranking'),
     path('ranking-form/', views.ranking_form, name='RankingForm'),
+    
 
 ]

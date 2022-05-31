@@ -1,6 +1,7 @@
 from django.db import models
 import datetime
 from datetime import datetime
+#from django.core.validators import MaxValueValidator, MinValueValidator
 
 
 # Create your models here.
@@ -18,8 +19,9 @@ class Comentario(models.Model):
 
 class Ranking(models.Model):
     name_course = models.CharField(max_length=30)
-    score = models.CharField(max_length=1)
     opinion = models.TextField()
+    score = models.IntegerField()
+    
 
     def __str__(self):
         return self.name_course
