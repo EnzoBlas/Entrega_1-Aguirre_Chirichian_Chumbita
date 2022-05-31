@@ -1,0 +1,14 @@
+{% extends "app_blog/index.html" %}
+{% load static %}
+{% block app_blog_content %} 
+
+{% if userpost %}
+    
+    <div class="container" style="background: #505458;">
+            <h2 style= "color: aliceblue;"><br><br>{{userpost}} no olvides tu clave ID:   !!{{userpost.pk}}¡¡<br><br><br></h2>
+    </div>
+    <a class="btn btn-outline-primary btn-lg" role="button" href="/app_blog/"  style="background: #49535c;border-color: rgb(13,14,16);color: rgb(248, 248, 248);">Volver</a>
+{% endif %}
+
+
+{% endblock %}

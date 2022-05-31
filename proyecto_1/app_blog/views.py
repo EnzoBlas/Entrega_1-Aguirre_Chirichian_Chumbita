@@ -1,12 +1,6 @@
-from datetime import date, datetime
-from turtle import title
 from django.shortcuts import render
-from xml.etree.ElementTree import Comment
-from django.shortcuts import get_object_or_404, render
 from django.db.models import Q
 from django.forms.models import model_to_dict
-from datetime import datetime, timezone
-from django.shortcuts import redirect
 
 from app_blog.models import Post,Userpost
 from app_blog.form import User_form,Post_form
@@ -52,15 +46,13 @@ def user_forms(request):
                 email=data['email'],
             )
             userpost.save()
-
-            userposts = Userpost.objects.all()
             context_dict = {
-                'userposts': userposts
+                'userpost': userpost
             }
             return render(
                 request=request,
                 context=context_dict,
-                template_name="app_blog/home.html"
+                template_name="app_blog/userpk.html"
             )
 
     user_from = User_form(request.POST)
@@ -78,9 +70,11 @@ def post_form(request):
         post_form = Post_form(request.POST)
         if post_form.is_valid():
             data = post_form.cleaned_data
+            author=data['author']
+            userpost = Userpost.objects.filter(author__contains=author)
             post = Post(
                 title=data['title'],
-                author=data['author'],
+                author=userpost['name'],
                 text=data['text'],
             )
             post.save()
@@ -146,4 +140,3 @@ def ranking_form(request):
         context=context_dict,
         template_name='app_blog/ranking_form.html'
     )
-

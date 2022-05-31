@@ -7,10 +7,12 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path("", views.index, name='home'),
     path("posts/", views.posts, name="posts"),
-    path("user-form/", views.user_forms, name="user-form"),
-    path("post-form", views.post_form, name="post_form"),
+    path("user-form/", views.user_forms, name="Sser_form"),
+    path("post-form", views.post_form, name="Post_form"),
     path('ranking/', views.ranking, name='Ranking'),
     path('ranking-form/', views.ranking_form, name='RankingForm'),
-    
+
+
+
 
 ]

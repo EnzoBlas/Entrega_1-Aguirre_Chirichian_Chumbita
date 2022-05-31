@@ -1,0 +1,14 @@
+{% extends "app_blog/index.html" %}
+{% load static %}
+{% block app_blog_content %} 
+<h2>Buscador de publicaciones </h2>
+<hr></hr>
+
+<form action="{% url 'app_blog:postsearch' %}" method='GET'>
+    <div>
+        <input type='text' name='all-search' id='post_datos' placeholder='Búsqueda'>
+        <input type='submit' value='Buscar' style="background-color:black; border-color: black; color: blanchedalmond;">
+    </div>
+    <hr></hr>
+</form>
+{% endblock %}
