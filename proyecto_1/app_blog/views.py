@@ -147,12 +147,12 @@ def post_form(request):
     )
 
 def search(request):   
-	if request.GET('all-search'):
-		search_param = request.GET('all-search')
-		posts = Post.objects.filter(title__contains=search_param)
-		#query = Q(title__contains=search_param)
-		#query.add(Q(author__contains=search_param), Q.OR)
+	if request.GET['all-search']:
+		search_param = request.GET['all-search']
 		#posts = Post.objects.filter(title__contains=search_param)
+		query = Q(title__contains=search_param)
+		query.add(Q(author__contains=search_param), Q.OR)
+		posts = Post.objects.filter(query)
 
 		context_dict = {
 			'posts': posts
