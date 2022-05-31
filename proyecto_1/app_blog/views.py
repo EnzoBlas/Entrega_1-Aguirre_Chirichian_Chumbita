@@ -1,11 +1,17 @@
 from datetime import date, datetime
 from turtle import title
 from django.shortcuts import render
+from xml.etree.ElementTree import Comment
+from django.shortcuts import get_object_or_404, render
 from django.db.models import Q
 from django.forms.models import model_to_dict
+from datetime import datetime, timezone
+from django.shortcuts import redirect
 
 from app_blog.models import Post,Userpost
 from app_blog.form import User_form,Post_form
+from app_blog.models import Ranking
+from app_blog.form import  RankingForm
 
 def index(request):
     posts = Post.objects.all()
@@ -74,7 +80,7 @@ def post_form(request):
             data = post_form.cleaned_data
             post = Post(
                 title=data['title'],
-                author=data['author'],
+                author=Userpost['author'],
                 text=data['text'],
             )
             post.save()
@@ -98,3 +104,46 @@ def post_form(request):
         context=context_dict,
         template_name='app_blog/post_form.html'
     )
+
+
+def ranking(request):
+    rankings = Ranking.objects.all()
+
+    context_dict = {
+        'rankings': rankings
+    }
+
+    return render(
+        request=request,
+        context=context_dict,
+        template_name="app_blog/ranking.html"
+    )
+
+
+def ranking_form(request):
+    if request.method == "POST":
+        ranking_form = RankingForm(request.POST)
+        if ranking_form.is_valid():
+            ranking = ranking_form.save(commit=False)
+            ranking.save()
+
+        rankings = Ranking.objects.all()
+        context_dict = {
+            'rankings': rankings
+        }
+        return render(
+                request=request,
+                context=context_dict,
+                template_name="app_blog/ranking.html"
+            )
+
+    ranking_form = RankingForm(request.POST)
+    context_dict = {
+        'ranking_form': ranking_form
+    }
+    return render(
+        request=request,
+        context=context_dict,
+        template_name='app_blog/ranking_form.html'
+    )
+

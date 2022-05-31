@@ -21,13 +21,15 @@
         <nav class="navbar navbar-dark navbar-expand-md bg-dark py-3">
             <div class="container">
                 <ul class="navbar-nav">
-                    <li class="nav-item"><a class="nav-link active" href="#"><img src="{% static 'app_blog/assets/img/coder.png' %}" style="width: 50px;height: 50px;"></a></li>
-                </ul><a class="navbar-brand d-flex align-items-center" href="#"><span style="font-size: 39px;font-family: 'DM Serif Display', serif;font-style: italic;font-weight: bold;"><strong><em>CODERBLOG</em></strong></span></a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-5"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+                    <li class="nav-item"><a class="nav-link active" href="/app_blog/"><img src="{% static 'app_blog/assets/img/coder.png' %}" style="width: 50px;height: 50px;"></a></li>
+                </ul><a class="navbar-brand d-flex align-items-center" href="/app_blog/"><span style="font-size: 39px;font-family: 'DM Serif Display', serif;font-style: italic;font-weight: bold;"><strong><em>CODERBLOG</em></strong></span></a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-5"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navcol-5">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item"><a class="nav-link active" href="/app_blog/">Inicio</a></li>
                         <li class="nav-item"></li>
                         <li class="nav-item"><a class="nav-link" href="/app_blog/user-form">Crear usuario&nbsp;</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Publicaciones anteriores&nbsp;</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'app_blog:Ranking' %}">Ranking&nbsp;</a></li>
                         <li class="nav-item"><a class="nav-link" href="#">Buscar Publicación</a></li>
                     </ul><a class="btn btn-primary ms-md-2" role="button" href="/app_blog/post-form" style="background: #49535c;border-color: rgb(13,14,16);">Crear publicación</a>
                 </div>
@@ -67,6 +69,7 @@
                     <div class="col-sm-4 col-md-3 text-center text-lg-start d-flex flex-column item">
                         <h3 class="fs-6 text-white">Contactenos</h3>
                         <ul class="list-unstyled">
+                            <li><a class="link-light" href="{% url 'app_blog:Ranking' %}">Rankin</a></li>
                             <li><a class="link-light" href="#">Cambios y sugerencias</a></li>
                         </ul>
                     </div>

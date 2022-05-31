@@ -1,0 +1,15 @@
+{% extends "app_blog/index.html" %}
+{% load static %}
+{% block app_blog_content %} 
+
+    <h2>Crea una nueva publicacion</h2>
+    <form action="" method="POST" class="post-form"> {% csrf_token %}
+
+        <table>
+            {{ ranking_form }}
+        </table>
+        <br>
+        <input type="submit" class="btn btn-primary" value="Crear Ranking" style="background-color:black; border-color: black;" />
+
+    </form>
+{% endblock %}

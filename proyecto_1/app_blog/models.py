@@ -2,6 +2,7 @@ from unittest.util import _MAX_LENGTH
 from django.db import models
 import datetime
 from datetime import datetime
+#from django.core.validators import MaxValueValidator, MinValueValidator
 
 
 
@@ -24,3 +25,13 @@ class Post(models.Model):
 
     def __str__(self):
         return  self.title
+
+
+class Ranking(models.Model):
+    name_course = models.CharField(max_length=30)
+    opinion = models.TextField()
+    score = models.IntegerField()
+    
+
+    def __str__(self):
+        return self.name_course
